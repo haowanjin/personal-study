@@ -30,8 +30,9 @@ public class MultiThreadEchoServerReactor {
         serverSocketChannel.bind(new InetSocketAddress("127.0.0.1", 9090));
 
         // 第一个选择器，负责健康新连接事件
+        // 负责哈哈哈
         SelectionKey sk = serverSocketChannel.register(selectors[0], SelectionKey.OP_ACCEPT);
-        // 绑定新连接监控 handler 处理器到 SelectionKey TODO
+        // 绑定新连接监控 handler 处理器到 SelectionKey
         sk.attach(new AcceptorHandler());
         // 第一个子反应器，一个子反应器负责一个选择器
         SubReactor subReactor1 = new SubReactor(selectors[0]);
