@@ -2,6 +2,7 @@ package com.ddup.cloud.consumer.controller;
 
 import com.ddup.cloud.consumer.service.UserFeignService;
 import com.ddup.user.entity.User;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 @RestController
+@Slf4j
 public class UserController {
     private static final String URL = "http://cloud-user-service/user/";
     @Autowired
@@ -34,7 +36,8 @@ public class UserController {
 
     @GetMapping("/feign/{id}")
     public User getUserByFeign(@PathVariable("id") String id) {
-       User user = userFeignService.getUser(id);
+        log.debug("接收到请求");
+        User user = userFeignService.getUser(id);
         return user;
     }
 }

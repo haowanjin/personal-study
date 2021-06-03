@@ -3,6 +3,7 @@ package com.ddup.cloud.user.impl;
 
 import com.ddup.user.api.UserService;
 import com.ddup.user.entity.User;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -10,6 +11,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
+@Slf4j
 @Service
 public class UserServiceImpl implements UserService {
     static final Map<Integer, User> userMap = new ConcurrentHashMap<>();
@@ -23,7 +25,17 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User getUserById(Integer id) {
-
+        log.debug("接收到请求，ThreadName={},", Thread.currentThread().getName());
+        if (!userMap.containsKey(id)) {
+            throw new RuntimeException("用户不存在，id=" + id);
+        }
+        if (id == 2) {
+            try {
+                Thread.sleep(5000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
         return userMap.get(id);
     }
 

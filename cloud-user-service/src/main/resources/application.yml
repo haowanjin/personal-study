@@ -15,4 +15,8 @@ eureka:
     fetch-registry: true
   server:
     enable-self-preservation: true
-
+logging:
+  level:
+    com.ddup.cloud: debug
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%p] %highlight(%C:%L) : %m%n"
