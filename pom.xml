@@ -22,6 +22,7 @@
         <module>cloud-eureka-server</module>
         <module>cloud-user-consumer</module>
         <module>netty-study</module>
+        <module>spring-study</module>
     </modules>
 
     <properties>
