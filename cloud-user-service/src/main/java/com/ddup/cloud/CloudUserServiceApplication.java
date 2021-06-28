@@ -1,4 +1,4 @@
-package com.ddup.cloud.user;
+package com.ddup.cloud;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

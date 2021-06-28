@@ -1,9 +1,13 @@
 package com.ddup.cloud.user.impl;
 
 
+import com.alibaba.fastjson.JSON;
+import com.ddup.cloud.db.mapper.YwdMapper;
 import com.ddup.user.api.UserService;
 import com.ddup.user.entity.User;
+import com.ddup.user.entity.Ywd;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -14,6 +18,9 @@ import java.util.concurrent.ConcurrentHashMap;
 @Slf4j
 @Service
 public class UserServiceImpl implements UserService {
+    @Autowired
+    private YwdMapper ywdMapper;
+
     static final Map<Integer, User> userMap = new ConcurrentHashMap<>();
 
     static {
@@ -29,6 +36,10 @@ public class UserServiceImpl implements UserService {
         if (!userMap.containsKey(id)) {
             throw new RuntimeException("用户不存在，id=" + id);
         }
+
+        List<Ywd> ywds = ywdMapper.queryYwd();
+        log.info(JSON.toJSONString(ywds));
+
         if (id == 2) {
             try {
                 Thread.sleep(5000);
