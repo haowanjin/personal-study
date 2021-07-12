@@ -5,10 +5,16 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class GoodsService {
-    @Autowired
-    private OrderService orderService;
 
-    public GoodsService() {
-        System.out.println("GoodsService created");
+    public GoodsService(/*OrderService orderService*/) {
+//        this.orderService = orderService;
+        System.out.println("GoodsService constructor....");
+    }
+
+
+    @Autowired
+    public String setOrderService(OrderService orderService) {
+        System.out.println(orderService.hello());
+        return "GoodsService say()";
     }
 }

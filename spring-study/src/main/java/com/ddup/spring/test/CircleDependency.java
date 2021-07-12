@@ -1,5 +1,6 @@
 package com.ddup.spring.test;
 
+import com.ddup.spring.service.GoodsService;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 
@@ -8,7 +9,8 @@ public class CircleDependency {
     public static void main(String[] args) {
         AnnotationConfigApplicationContext ac
                 = new AnnotationConfigApplicationContext(CircleDependency.class);
+      //  ac.refresh();
 
-        ac.getBean("goodsService");
+        GoodsService goodsService = ac.getBean("goodsService", GoodsService.class);
     }
 }

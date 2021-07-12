@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class UserFeignFallBackService implements UserFeignService {
     @Override
-    public User getUser(String id) {
+    public User getUserByFeign(String id) {
         log.debug("调用 UserService getUser 方法失败，进入降级处理方法 getUser");
 
         return new User(-1, "降级处理", "中性", 20, "失败，降级处理");

@@ -37,7 +37,7 @@ public class UserController {
     @GetMapping("/feign/{id}")
     public User getUserByFeign(@PathVariable("id") String id) {
         log.debug("接收到请求");
-        User user = userFeignService.getUser(id);
+        User user = userFeignService.getUserByFeign(id);
         return user;
     }
 }
