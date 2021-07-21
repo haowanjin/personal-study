@@ -7,8 +7,6 @@ import org.springframework.context.ApplicationContext;
 
 @SpringBootApplication
 public class SpringStudyApplication {
-    @Autowired
-    private ApplicationContext applicationContext;
 
     public static void main(String[] args) {
 

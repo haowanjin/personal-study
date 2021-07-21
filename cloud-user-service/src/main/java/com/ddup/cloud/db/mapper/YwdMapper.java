@@ -10,4 +10,6 @@ import java.util.List;
 public interface YwdMapper {
     @Select("select * from hoyi_ywd_ext")
     List<Ywd> queryYwd();
+
+    List<Ywd> queryYwdByParam(Ywd ywd);
 }
