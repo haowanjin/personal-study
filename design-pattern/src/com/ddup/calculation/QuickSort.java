@@ -16,7 +16,7 @@ public class QuickSort {
             return;
         }
         if (left < right) {//首先判断角标是否越界
-            int cen = arr[(left + right) / 2];//用变量将中间值记录下来，不记录下来会使中间值在下面代码执行过程中发生改变，因为数组在下面发生了重排，这时再取值就不准了
+            int cen = arr[(left + ((right - left) >> 1))];//用变量将中间值记录下来，不记录下来会使中间值在下面代码执行过程中发生改变，因为数组在下面发生了重排，这时再取值就不准了
             int i = left - 1;
             int j = right + 1;
             while (true) {
@@ -37,6 +37,8 @@ public class QuickSort {
             return;
         }
         if (l < r) {
+            int random = l + (int) Math.random() * (r - l + 1);
+            swap(arr, random, r);
             int[] p = partition(arr, 0, r);
             quickSort2(arr, l, p[0] - 1);
             quickSort2(arr, p[1] + 1, r);
