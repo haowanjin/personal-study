@@ -99,6 +99,59 @@ public class BinaryTreeForEach {
         }
     }
 
+    public static void morrisePre(TreeNode root) {
+        if (root == null) {
+            return;
+        }
+        TreeNode cur = root;
+        TreeNode mostRight = null;
+        while (cur != null) {
+            mostRight = cur.getLeftTreeNode();
+            if (mostRight != null) {
+                while (mostRight.getRightTreeNode() != null && mostRight.getRightTreeNode() != cur) {
+                    mostRight = mostRight.getRightTreeNode();
+                }
+                if (mostRight.getRightTreeNode() == null) {
+                    mostRight.setRightTreeNode(cur);
+                    System.out.print(cur.getData() + " ");
+                    cur = cur.getLeftTreeNode();
+                    continue;
+                } else {
+                    mostRight.setRightTreeNode(null);
+                }
+            } else {// 没有左子树
+                System.out.print(cur.getData() + " ");
+            }
+            cur = cur.getRightTreeNode();
+        }
+        System.out.println();
+    }
+
+    public static void morriseIn(TreeNode head) { // 中序遍历
+        if (head == null) {
+            return;
+        }
+        TreeNode cur = head;
+        TreeNode mostRight = null;
+        while (cur != null) {
+            mostRight = cur.getLeftTreeNode();
+            if (mostRight != null) {// 有左子树
+                while (mostRight.getRightTreeNode() != null && mostRight.getRightTreeNode() != cur) { // 查找左子树的最右节点
+                    mostRight = mostRight.getRightTreeNode();
+                }
+                if (mostRight.getRightTreeNode() == null) {// 最右节点的右节点为空，令其指向当前节点
+                    mostRight.setRightTreeNode(cur);
+                    cur = cur.getLeftTreeNode(); // 当前节点左移
+                    continue;
+                } else { // 最右节点为当前节点，令其为空
+                    mostRight.setRightTreeNode(null);
+                }
+            }
+            // 打印当前节点，当前节点右移(此处打印包含第一次到达和第二次到达)
+            System.out.print(cur.getData() + " ");
+            cur = cur.getRightTreeNode();
+        }
+    }
 
     public static void main(String[] args) {
         BinaryTreeForEach tree = new BinaryTreeForEach();
@@ -115,5 +168,10 @@ public class BinaryTreeForEach {
         tree.centerPrint(treeNode);
         System.out.println();
         tree.afterPrint(treeNode);
+
+        System.out.println("\n --------------------------- \nmorrise pre ");
+        morrisePre(treeNode);
+        System.out.println("\n --------------------------- \nmorrise in ");
+        morriseIn(treeNode);
     }
 }

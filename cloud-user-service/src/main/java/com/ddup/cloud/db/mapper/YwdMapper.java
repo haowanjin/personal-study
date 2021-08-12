@@ -12,4 +12,6 @@ public interface YwdMapper {
     List<Ywd> queryYwd();
 
     List<Ywd> queryYwdByParam(Ywd ywd);
+
+    void saveYwd(Ywd ywd);
 }
