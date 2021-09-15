@@ -153,6 +153,16 @@ public class BinaryTreeForEach {
         }
     }
 
+    public static RetType process(TreeNode head) {
+        if (head == null) {
+            return new RetType(Integer.MIN_VALUE, Integer.MAX_VALUE);
+        }
+        RetType left = process(head.getLeftTreeNode());
+        RetType right = process(head.getRightTreeNode());
+
+        return new RetType(Math.max(left.max, right.max), Math.min(left.min, right.min));
+    }
+
     public static void main(String[] args) {
         BinaryTreeForEach tree = new BinaryTreeForEach();
         TreeNode treeNode = tree.init();
@@ -173,5 +183,14 @@ public class BinaryTreeForEach {
         morrisePre(treeNode);
         System.out.println("\n --------------------------- \nmorrise in ");
         morriseIn(treeNode);
+    }
+
+    static class RetType {
+        int max, min;
+
+        public RetType(int max, int min) {
+            this.min = min;
+            this.max = max;
+        }
     }
 }
