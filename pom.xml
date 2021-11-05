@@ -29,6 +29,7 @@
         <module>cloud-user-consumer</module>
         <module>netty-study</module>
         <module>spring-study</module>
+        <module>spring-security-study</module>
     </modules>
 
     <properties>
