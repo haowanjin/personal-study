@@ -9,7 +9,7 @@
     </parent>
 
     <groupId>com.ddup</groupId>
-    <artifactId>security</artifactId>
+    <artifactId>spring-security-demo</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>security</name>
     <description>测试spring-security工程</description>
