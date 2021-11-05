@@ -11,7 +11,7 @@
     <groupId>com.ddup</groupId>
     <artifactId>spring-security-demo</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>security</name>
+    <name>spring-security-demo</name>
     <description>测试spring-security工程</description>
 
     <properties>
