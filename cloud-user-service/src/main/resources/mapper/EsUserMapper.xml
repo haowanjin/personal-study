@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ddup.cloud.db.mapper.EsUserMapper">
+    <select id="getAll" resultType="com.ddup.cloud.entity.EsUser">
+        <!--  <bind name="pattern" value="'%' + ywdName + '%'"/>-->
+        <!-- select * from hoyi_ywd_ext where ywd_name like concat('%',#{ywdName},'%')-->
+        select * from es_user
+    </select>
+
+    <insert id="insertEsUser" parameterType="com.ddup.cloud.entity.EsUser">
+        insert into es_user (id,`name`,sex,age,addr)value (#{id},#{name},#{sex},#{age},#{addr})
+    </insert>
+</mapper>

@@ -32,13 +32,13 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User getUserById(Integer id) {
-        log.debug("接收到请求，ThreadName={},", Thread.currentThread().getName());
+//        log.debug("接收到请求，ThreadName={},", Thread.currentThread().getName());
         if (!userMap.containsKey(id)) {
             throw new RuntimeException("用户不存在，id=" + id);
         }
 
         List<Ywd> ywds = ywdMapper.queryYwd();
-        log.info(JSON.toJSONString(ywds));
+//        log.info(JSON.toJSONString(ywds));
 
         if (id == 2) {
             try {

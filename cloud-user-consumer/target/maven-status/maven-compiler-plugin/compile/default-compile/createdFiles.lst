@@ -1,5 +1,0 @@
-com\ddup\cloud\consumer\service\UserFeignFallBackService.class
-com\ddup\cloud\consumer\service\UserFeignService.class
-com\ddup\cloud\consumer\controller\UserController.class
-com\ddup\cloud\consumer\CloudUserConsumerApplication.class
-com\ddup\cloud\consumer\config\UserConfig.class

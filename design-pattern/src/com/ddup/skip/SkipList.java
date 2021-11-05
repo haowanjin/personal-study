@@ -1,5 +1,6 @@
 package com.ddup.skip;
 
+
 import lombok.Data;
 
 import java.util.Random;

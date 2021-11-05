@@ -1,13 +1,10 @@
 package com.ddup.skip;
 
-import lombok.Data;
-
 /**
  * @author: hwj
  * @Description TODO
  * @create: 2021/8/31 15:53
  */
-@Data
 public class SkipListNode<T> {
     //索引层
     private SkipListLevel[] level;
@@ -41,5 +38,37 @@ public class SkipListNode<T> {
         for (int i = 0; i < height; ++i) {
             level[i] = new SkipListLevel();
         }
+    }
+
+    public SkipListLevel[] getLevel() {
+        return level;
+    }
+
+    public void setLevel(SkipListLevel[] level) {
+        this.level = level;
+    }
+
+    public SkipListNode<T> getBackWord() {
+        return backWord;
+    }
+
+    public void setBackWord(SkipListNode<T> backWord) {
+        this.backWord = backWord;
+    }
+
+    public double getScore() {
+        return score;
+    }
+
+    public void setScore(double score) {
+        this.score = score;
+    }
+
+    public T getObj() {
+        return obj;
+    }
+
+    public void setObj(T obj) {
+        this.obj = obj;
     }
 }
