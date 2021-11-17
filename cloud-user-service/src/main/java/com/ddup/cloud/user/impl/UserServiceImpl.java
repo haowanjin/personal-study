@@ -37,8 +37,6 @@ public class UserServiceImpl implements UserService {
             throw new RuntimeException("用户不存在，id=" + id);
         }
 
-        List<Ywd> ywds = ywdMapper.queryYwd();
-//        log.info(JSON.toJSONString(ywds));
 
         if (id == 2) {
             try {

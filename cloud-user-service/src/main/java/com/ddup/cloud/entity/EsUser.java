@@ -1,10 +1,9 @@
 package com.ddup.cloud.entity;
 
 import lombok.Data;
-import org.springframework.data.elasticsearch.annotations.Document;
 
 @Data
-@Document(indexName = "EsUser")
+//@Document(indexName = "EsUser")
 public class EsUser {
     private Integer id;
     private String name;

@@ -1,7 +1,6 @@
 package com.ddup.skip;
 
 
-import lombok.Data;
 
 import java.util.Random;
 
@@ -10,7 +9,6 @@ import java.util.Random;
  * @Description TODO
  * @create: 2021/8/31 15:55
  */
-@Data
 public class SkipList<T extends Comparable<? super T>> {
     //首尾结点的指针
     private SkipListNode<T> header;

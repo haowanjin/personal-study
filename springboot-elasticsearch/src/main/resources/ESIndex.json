@@ -1,0 +1,17 @@
+{
+  "properties": {
+    "name": {
+      "type": "text",
+      "analyzer": "ik_smart"
+    },
+    "age": {
+      "type": "integer",
+      "store": true
+    },
+    "addr": {
+      "type": "text",
+      "store": true,
+      "analyzer": "ik_smart"
+    }
+  }
+}
