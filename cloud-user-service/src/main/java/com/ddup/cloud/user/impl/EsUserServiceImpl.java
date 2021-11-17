@@ -1,7 +1,14 @@
 package com.ddup.cloud.user.impl;
 
+import com.ddup.cloud.db.mapper.EsUserMapper;
+import com.ddup.cloud.entity.EsUser;
 import com.ddup.cloud.service.EsUserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 /**
  * @author: hwj
@@ -10,44 +17,24 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class EsUserServiceImpl implements EsUserService {
-    /*@Autowired
-    private EsUserRepository userRepository;
+    @Autowired
+    private EsUserMapper userMapper;
 
     @Override
-    public long count() {
-        return userRepository.count();
+    @Transactional(isolation = Isolation.READ_COMMITTED)
+    public String save() {
+        for (int i = 0; i < 50; i++) {
+            int random = (int) Math.random();
+            int age = random * 10 + i + 1;
+            EsUser esUser = new EsUser(i + 1, "张三" + age, 50 % (i + 1) == 0 ? "男" : "女", age, "西安市丈八北路丈八沟街道" + age + "号");
+            userMapper.insertEsUser(esUser);
+        }
+        return "success";
     }
 
     @Override
-    public EsUser save(EsUser esUser) {
-        return userRepository.save(esUser);
+    @Transactional(isolation = Isolation.REPEATABLE_READ)
+    public List<EsUser> getAll() {
+        return userMapper.getAll();
     }
-
-    @Override
-    public void delete(EsUser esUser) {
-        userRepository.delete(esUser);
-    }
-
-    @Override
-    public Iterable<EsUser> getAll() {
-        return userRepository.findAll();
-    }
-
-    @Override
-    public List<EsUser> getByName(String name) {
-        List<EsUser> list = new ArrayList<>();
-        MatchQueryBuilder builder = new MatchQueryBuilder("name", name);
-        Iterable<EsUser> search = userRepository.search(builder);
-        search.forEach(e -> list.add(e));
-        return list;
-    }
-
-    @Override
-    public Page<EsUser> pageQuery(Integer pageNo, Integer pageSize, String kw) {
-        SearchQuery searchQuery = new NativeSearchQueryBuilder()
-                .withQuery(QueryBuilders.matchPhraseQuery("name", kw))
-                .withPageable(PageRequest.of(pageNo, pageSize))
-                .build();
-        return userRepository.search(searchQuery);
-    }*/
 }

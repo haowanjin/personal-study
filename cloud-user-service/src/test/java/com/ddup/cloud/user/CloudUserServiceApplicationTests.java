@@ -3,6 +3,7 @@ package com.ddup.cloud.user;
 import com.ddup.cloud.db.mapper.EsUserMapper;
 import com.ddup.cloud.db.mapper.YwdMapper;
 import com.ddup.cloud.entity.EsUser;
+import com.ddup.cloud.service.EsUserService;
 import com.ddup.user.entity.Ywd;
 import org.junit.jupiter.api.Test;
 import org.mybatis.spring.annotation.MapperScan;
@@ -19,6 +20,9 @@ class CloudUserServiceApplicationTests {
     private YwdMapper mapper;
     @Autowired
     private EsUserMapper userMapper;
+
+    @Autowired
+    private EsUserService esUserService;
 
     @Test
     void contextLoads() {
@@ -56,9 +60,20 @@ class CloudUserServiceApplicationTests {
         for (int i = 0; i < 50; i++) {
             int random = (int) Math.random();
             int age = random * 10 + i + 1;
-            EsUser esUser = new EsUser(i, "张三" + age, 50 % (i + 1) == 0 ? "男" : "女", age, "西安市丈八北路丈八沟街道" + age + "号");
+            EsUser esUser = new EsUser(i+1, "张三" + age, 50 % (i + 1) == 0 ? "男" : "女", age, "西安市丈八北路丈八沟街道" + age + "号");
             userMapper.insertEsUser(esUser);
         }
+    }
+
+    @Test
+    void testSave() {
+        esUserService.save();
+    }
+
+    @Test
+    void testGetAll() {
+        List<EsUser> all = esUserService.getAll();
+        System.out.println(all);
     }
 
 }

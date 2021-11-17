@@ -1,15 +1,11 @@
 package com.ddup.cloud.service;
 
+import com.ddup.cloud.entity.EsUser;
+
+import java.util.List;
+
 public interface EsUserService {
-   /* long count();
+    String save();
 
-    EsUser save(EsUser EsUser);
-
-    void delete(EsUser EsUser);
-
-    Iterable<EsUser> getAll();
-
-    List<EsUser> getByName(String name);
-
-    Page<EsUser> pageQuery(Integer pageNo, Integer pageSize, String kw);*/
+    List<EsUser> getAll();
 }
