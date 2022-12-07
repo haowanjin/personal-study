@@ -1,16 +1,21 @@
 package com.ddup.spring.test;
 
-import com.ddup.spring.service.GoodsService;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.annotation.ComponentScan;
+import com.ddup.spring.service.OrderService;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runner.Runner;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
-@ComponentScan("com.ddup.spring")
+@SpringBootTest
+@RunWith(SpringRunner.class)
 public class CircleDependency {
-    public static void main(String[] args) {
-        AnnotationConfigApplicationContext ac
-                = new AnnotationConfigApplicationContext(CircleDependency.class);
-      //  ac.refresh();
+   @Autowired
+    private OrderService orderService;
 
-        GoodsService goodsService = ac.getBean("goodsService", GoodsService.class);
+    @Test
+    public void test() {
+        orderService.hello();
     }
 }
