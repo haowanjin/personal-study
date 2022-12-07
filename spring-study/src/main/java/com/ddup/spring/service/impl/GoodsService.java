@@ -1,17 +1,18 @@
-package com.ddup.spring.service;
+package com.ddup.spring.service.impl;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-@Service
+@Service("goodsService1")
+@Qualifier("goodsService1")
 public class GoodsService {
 
     public GoodsService() {
-        System.out.println("GoodsService constructor....");
+        System.out.println("impl GoodsService constructor....");
     }
 
-    @Transactional
+//    @Transactional
     public String getUser() {
         GoodsService gs1 = this;
         System.out.println(gs1);

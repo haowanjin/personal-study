@@ -1,4 +1,4 @@
-package demo.test;
+package com.ddup.spring.test;
 
 import com.ddup.spring.service.impl.GoodsService;
 import org.junit.Test;

@@ -15,6 +15,6 @@ class A{
     }
 
     public A() {
-        System.out.println("constructor method");
+        System.out.println("constructor A method");
     }
 }
