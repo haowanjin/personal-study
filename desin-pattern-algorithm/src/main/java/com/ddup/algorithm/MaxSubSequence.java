@@ -1,6 +1,6 @@
 package com.ddup.algorithm;
 
-import java.util.*;
+import java.util.Scanner;
 
 public class MaxSubSequence {
     public static void main(String[] args) {

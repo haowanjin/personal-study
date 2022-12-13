@@ -1,7 +1,5 @@
 package com.ddup.thread;
 
-import java.util.concurrent.TimeUnit;
-
 public class VolatileTest {
     public static volatile int race = 0;
     private static final int THREADS_COUNT = 20;
