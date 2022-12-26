@@ -1,6 +1,6 @@
 package com.ddup.algorithm;
 
-import com.ddup.algorithm.modal.TreeNode;
+import com.ddup.algorithm.model.TreeNode;
 
 import java.util.Stack;
 
@@ -27,17 +27,17 @@ public class BinaryTreeForEach {
             return;
         }
         printNode(root);
-        theFirstTraversal(root.getLeftTreeNode());
-        theFirstTraversal(root.getRightTreeNode());
+        theFirstTraversal(root.getLeft());
+        theFirstTraversal(root.getRight());
     }
 
     public void theCenterTraversal(TreeNode root) {
         if (root == null) {
             return;
         }
-        theCenterTraversal(root.getLeftTreeNode());
+        theCenterTraversal(root.getLeft());
         printNode(root);
-        theCenterTraversal(root.getRightTreeNode());
+        theCenterTraversal(root.getRight());
     }
 
 
@@ -45,8 +45,8 @@ public class BinaryTreeForEach {
         if (root == null) {
             return;
         }
-        theAfterTraversal(root.getLeftTreeNode());
-        theAfterTraversal(root.getRightTreeNode());
+        theAfterTraversal(root.getLeft());
+        theAfterTraversal(root.getRight());
         printNode(root);
     }
 
@@ -57,10 +57,10 @@ public class BinaryTreeForEach {
             if (node != null) {
                 printNode(node);
                 stack.push(node);
-                node = node.getLeftTreeNode();
+                node = node.getLeft();
             } else {
                 node = stack.pop();
-                node = node.getRightTreeNode();
+                node = node.getRight();
             }
         }
     }
@@ -71,11 +71,11 @@ public class BinaryTreeForEach {
         while (node != null || !stack.empty()) {
             if (node != null) {
                 stack.push(node);
-                node = node.getLeftTreeNode();
+                node = node.getLeft();
             } else {
                 node = stack.pop();
                 printNode(node);
-                node = node.getRightTreeNode();
+                node = node.getRight();
             }
         }
     }
@@ -88,10 +88,10 @@ public class BinaryTreeForEach {
             if (node != null) {
                 outPut.push(node);
                 stack.push(node);
-                node = node.getRightTreeNode();
+                node = node.getRight();
             } else {
                 node = stack.pop();
-                node = node.getLeftTreeNode();
+                node = node.getLeft();
             }
         }
         while (!outPut.empty()) {
@@ -106,23 +106,23 @@ public class BinaryTreeForEach {
         TreeNode cur = root;
         TreeNode mostRight = null;
         while (cur != null) {
-            mostRight = cur.getLeftTreeNode();
+            mostRight = cur.getLeft();
             if (mostRight != null) {
-                while (mostRight.getRightTreeNode() != null && mostRight.getRightTreeNode() != cur) {
-                    mostRight = mostRight.getRightTreeNode();
+                while (mostRight.getRight() != null && mostRight.getRight() != cur) {
+                    mostRight = mostRight.getRight();
                 }
-                if (mostRight.getRightTreeNode() == null) {
-                    mostRight.setRightTreeNode(cur);
+                if (mostRight.getRight() == null) {
+                    mostRight.setRight(cur);
                     System.out.print(cur.getData() + " ");
-                    cur = cur.getLeftTreeNode();
+                    cur = cur.getLeft();
                     continue;
                 } else {
-                    mostRight.setRightTreeNode(null);
+                    mostRight.setRight(null);
                 }
             } else {// 没有左子树
                 System.out.print(cur.getData() + " ");
             }
-            cur = cur.getRightTreeNode();
+            cur = cur.getRight();
         }
         System.out.println();
     }
@@ -134,22 +134,22 @@ public class BinaryTreeForEach {
         TreeNode cur = head;
         TreeNode mostRight = null;
         while (cur != null) {
-            mostRight = cur.getLeftTreeNode();
+            mostRight = cur.getLeft();
             if (mostRight != null) {// 有左子树
-                while (mostRight.getRightTreeNode() != null && mostRight.getRightTreeNode() != cur) { // 查找左子树的最右节点
-                    mostRight = mostRight.getRightTreeNode();
+                while (mostRight.getRight() != null && mostRight.getRight() != cur) { // 查找左子树的最右节点
+                    mostRight = mostRight.getRight();
                 }
-                if (mostRight.getRightTreeNode() == null) {// 最右节点的右节点为空，令其指向当前节点
-                    mostRight.setRightTreeNode(cur);
-                    cur = cur.getLeftTreeNode(); // 当前节点左移
+                if (mostRight.getRight() == null) {// 最右节点的右节点为空，令其指向当前节点
+                    mostRight.setRight(cur);
+                    cur = cur.getLeft(); // 当前节点左移
                     continue;
                 } else { // 最右节点为当前节点，令其为空
-                    mostRight.setRightTreeNode(null);
+                    mostRight.setRight(null);
                 }
             }
             // 打印当前节点，当前节点右移(此处打印包含第一次到达和第二次到达)
             System.out.print(cur.getData() + " ");
-            cur = cur.getRightTreeNode();
+            cur = cur.getRight();
         }
     }
 
@@ -157,8 +157,8 @@ public class BinaryTreeForEach {
         if (head == null) {
             return new RetType(Integer.MIN_VALUE, Integer.MAX_VALUE);
         }
-        RetType left = process(head.getLeftTreeNode());
-        RetType right = process(head.getRightTreeNode());
+        RetType left = process(head.getLeft());
+        RetType right = process(head.getRight());
 
         return new RetType(Math.max(left.max, right.max), Math.min(left.min, right.min));
     }
@@ -166,6 +166,7 @@ public class BinaryTreeForEach {
     public static void main(String[] args) {
         BinaryTreeForEach tree = new BinaryTreeForEach();
         TreeNode treeNode = tree.init();
+        System.out.println("树的高度 = " + treeNode.getHeight());
         tree.theFirstTraversal(treeNode);
         System.out.println();
         tree.theCenterTraversal(treeNode);
