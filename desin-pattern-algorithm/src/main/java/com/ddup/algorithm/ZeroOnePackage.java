@@ -1,4 +1,4 @@
-package com.ddup;
+package com.ddup.algorithm;
 
 /**
  * @author haowanjin
