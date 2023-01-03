@@ -3,7 +3,7 @@ package com.ddup.spring.test;
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Element;
 import com.itextpdf.text.pdf.*;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.io.BufferedOutputStream;
 import java.io.FileOutputStream;

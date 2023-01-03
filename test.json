@@ -1,0 +1,12 @@
+{
+  "filedMap": {
+    "user": {
+      "userName": "张三",
+      "password": "${password}"
+    },
+    "head": {
+      "type": "1",
+      "time": "2022-12-31"
+    }
+  }
+}

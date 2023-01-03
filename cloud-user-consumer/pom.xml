@@ -64,6 +64,7 @@
             <version>1.5.12</version>
         </dependency>
     </dependencies>
+<!--
 
     <build>
         <plugins>
@@ -74,5 +75,6 @@
             </plugin>
         </plugins>
     </build>
+-->
 
 </project>
