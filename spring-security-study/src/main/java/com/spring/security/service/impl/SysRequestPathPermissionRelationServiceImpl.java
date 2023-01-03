@@ -27,7 +27,7 @@ public class SysRequestPathPermissionRelationServiceImpl implements SysRequestPa
      */
     @Override
     public SysRequestPathPermissionRelation queryById(Integer id) {
-        return this.sysRequestPathPermissionRelationDao.queryById();
+        return this.sysRequestPathPermissionRelationDao.queryById(id);
     }
 
     /**
