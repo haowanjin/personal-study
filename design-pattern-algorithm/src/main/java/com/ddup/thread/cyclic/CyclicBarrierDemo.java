@@ -36,7 +36,6 @@ public class CyclicBarrierDemo {
         CyclicBarrier barrier = new CyclicBarrier(5, () -> {
             System.out.println(Thread.currentThread().getName() + "完成最后任务");
         });
-
         for (int i = 0; i < threadNum; i++) {
             new TaskThread(barrier).start();
         }
