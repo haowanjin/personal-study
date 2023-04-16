@@ -85,11 +85,11 @@ public class ThreadPoolDemo {
         @Override
         public void run() {
             try {
-                System.out.println(getName() + " *** 开始执行");
+                System.out.println(currentThread().getName() + "- > " + getName() + " *** 开始执行");
                 TimeUnit.SECONDS.sleep(2);
-                System.out.println(getName() + " 执行完毕 ***");
+                System.out.println(currentThread().getName() + "- > " + getName() + " 执行完毕 ***");
             } catch (InterruptedException e) {
-                System.out.println(getName() + " 被中断");
+                System.out.println(currentThread().getName() + "- > " + getName() + " 被中断");
             }
         }
     }

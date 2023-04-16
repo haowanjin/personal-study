@@ -23,8 +23,8 @@ public class QuickSort {
             int i = left - 1;
             int j = right + 1;
             while (true) {
-                while (arr[++i] < cen) ;
-                while (arr[--j] > cen) ;
+                while (arr[++i] < cen && i < j) ;
+                while (arr[--j] > cen && i < j) ;
                 if (i >= j)
                     break;
                 swap(arr, i, j);
@@ -70,12 +70,14 @@ public class QuickSort {
         arrs[j] = temp;
     }
 
-    /**完美数判断*/
+    /**
+     * 完美数判断
+     */
     static boolean checkPerfectNumber(int num) {
         int sum = 0;
         int i = 1;
         int val = (int) Math.sqrt(num);  //为了降低时间复杂度，只遍历左半边即可
-        while (i <= val && i != num){ //注意输入为1的情况
+        while (i <= val && i != num) { //注意输入为1的情况
             if (num % i == 0) {
                 sum += i;
                 if (i != 1)

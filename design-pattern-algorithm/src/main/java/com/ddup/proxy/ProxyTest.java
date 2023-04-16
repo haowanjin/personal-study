@@ -10,7 +10,6 @@ import java.lang.reflect.Proxy;
 public class ProxyTest {
     public static void main(String[] args) {
         UserService service = new UserServiceImpl();
-
         UserService o = (UserService) Proxy.newProxyInstance(ProxyTest.class.getClassLoader(), new Class[]{UserService.class}, new AopInvokerHandler(service));
         o.doSth();
     }

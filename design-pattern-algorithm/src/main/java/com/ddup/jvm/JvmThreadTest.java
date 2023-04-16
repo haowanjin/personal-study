@@ -20,7 +20,7 @@ public class JvmThreadTest {
             List<byte[]> list = new ArrayList<>();
             while (true) {
                 System.out.println(new Date().toString()+Thread.currentThread().getId()+"=====");
-                byte[] b = new byte[1024*1024*1];
+                byte[] b = new byte[1024 * 1024];
                 list.add(b);
                 try {
                     Thread.sleep(1000);
