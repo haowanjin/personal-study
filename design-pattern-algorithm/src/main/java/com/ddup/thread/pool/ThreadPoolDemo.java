@@ -18,7 +18,7 @@ public class ThreadPoolDemo {
          */
         //threadPool1 core size = 2 threadPool1 pool size = 0
         ExecutorService threadPool1 = new ThreadPoolExecutor(2,
-                20, 6, TimeUnit.SECONDS, new ArrayBlockingQueue<>(4));
+                4, 6, TimeUnit.SECONDS, new ArrayBlockingQueue<>(2));
         /**
          * 单个后台线程
          *
@@ -77,19 +77,23 @@ public class ThreadPoolDemo {
 
     }
 
-    static class ThreadTask extends Thread {
+    static class ThreadTask implements Runnable {
+        private String taskName;
         public ThreadTask(String name) {
-            super(name);
+            this.taskName = name;
         }
 
+        public String getName() {
+            return this.taskName;
+        }
         @Override
         public void run() {
             try {
-                System.out.println(currentThread().getName() + "- > " + getName() + " *** 开始执行");
+                System.out.println(Thread.currentThread().getName() + "- > " + getName() + " *** 开始执行");
                 TimeUnit.SECONDS.sleep(2);
-                System.out.println(currentThread().getName() + "- > " + getName() + " 执行完毕 ***");
+                System.out.println(Thread.currentThread().getName() + "- > " + getName() + " 执行完毕 ***");
             } catch (InterruptedException e) {
-                System.out.println(currentThread().getName() + "- > " + getName() + " 被中断");
+                System.out.println(Thread.currentThread().getName() + "- > " + getName() + " 被中断");
             }
         }
     }
