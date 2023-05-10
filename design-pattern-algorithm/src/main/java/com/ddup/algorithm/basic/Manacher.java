@@ -1,4 +1,4 @@
-package com.ddup.algorithm;
+package com.ddup.algorithm.basic;
 
 /**
  * 回文字符串

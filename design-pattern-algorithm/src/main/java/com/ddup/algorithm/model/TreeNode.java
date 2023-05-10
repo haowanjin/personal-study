@@ -7,12 +7,12 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class TreeNode {
-    private int data;
-    private TreeNode left;
-    private TreeNode right;
+public class TreeNode<V> {
+    private V data;
+    private TreeNode<V> left;
+    private TreeNode<V> right;
 
-    public TreeNode(int data) {
+    public TreeNode(V data) {
         this.data = data;
     }
 

@@ -1,4 +1,4 @@
-package com.ddup.algorithm;
+package com.ddup.algorithm.sort;
 
 import java.util.Arrays;
 import java.util.Collections;

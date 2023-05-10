@@ -1,4 +1,4 @@
-package com.ddup.algorithm;
+package com.ddup.algorithm.sort;
 
 public class MergeSortApply {
 

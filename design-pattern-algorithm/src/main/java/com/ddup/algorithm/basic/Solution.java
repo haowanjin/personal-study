@@ -1,4 +1,4 @@
-package com.ddup.algorithm;
+package com.ddup.algorithm.basic;
 
 /**
  * 判断一个字符串是不是十进制数字

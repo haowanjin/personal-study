@@ -1,4 +1,4 @@
-package com.ddup.algorithm;
+package com.ddup.algorithm.graph;
 
 import java.util.ArrayList;
 import java.util.Arrays;
