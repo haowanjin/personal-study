@@ -19,16 +19,19 @@ public class QuickSort {
             return;
         }
         if (left < right) {//首先判断角标是否越界
-            int cen = arr[(left + ((right - left) >> 1))];//用变量将中间值记录下来，不记录下来会使中间值在下面代码执行过程中发生改变，因为数组在下面发生了重排，这时再取值就不准了
-            int i = left - 1;
-            int j = right + 1;
+            int idx = left + (right - left) / 2;
+            int cen = arr[idx];//用变量将中间值记录下来，不记录下来会使中间值在下面代码执行过程中发生改变，因为数组在下面发生了重排，这时再取值就不准了
+            swap(arr, left, idx);
+            int i = left-1;
+            int j = right+1;
             while (true) {
-                while (arr[++i] < cen && i < j) ;
-                while (arr[--j] > cen && i < j) ;
+                while (i < j && arr[--j] > cen) ;
+                while (i < j && arr[++i] <= cen) ;
                 if (i >= j)
                     break;
                 swap(arr, i, j);
             }
+            swap(arr, left, i);
             quickSort(arr, left, i - 1);
             quickSort(arr, j + 1, right);
         }
@@ -40,7 +43,7 @@ public class QuickSort {
             return;
         }
         if (l < r) {
-            int random = l + (int) Math.random() * (r - l + 1);
+            int random = l + (int) (Math.random() * (r - l + 1));
             swap(arr, random, r);
             int[] p = partition(arr, 0, r);
             quickSort2(arr, l, p[0] - 1);
@@ -91,14 +94,12 @@ public class QuickSort {
     }
 
     public static void main(String[] args) {
-        int[] arr = new int[]{3, 3, 3, 2, 1, 5, 2, 2, 2, 5, 6, 1, 4};
+        int[] arr = new int[]{3, 1, 2, 3, 5, 0, 4,-3};
         System.out.println(checkPerfectNumber(1));
 
-        List<Integer> collect = Arrays.stream(arr).boxed().collect(Collectors.toList());
-        Collections.sort(collect, (o1, o2) -> o2 - o1);
+        List<Integer> collect = Arrays.stream(arr).boxed().sorted((o1, o2) -> o2 - o1).collect(Collectors.toList());
         System.out.println(collect);
 
-        System.out.println(Arrays.toString(arr));
         quickSort(arr, 0, arr.length - 1);
         System.out.println(Arrays.toString(arr));
     }
