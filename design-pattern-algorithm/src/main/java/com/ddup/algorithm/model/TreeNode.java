@@ -1,8 +1,11 @@
 package com.ddup.algorithm.model;
 
+import com.alibaba.fastjson.JSONObject;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import static com.sun.management.HotSpotDiagnosticMXBean.ThreadDumpFormat.JSON;
 
 @Data
 @NoArgsConstructor
@@ -75,4 +78,10 @@ public class TreeNode<V> {
         }
         return right.getHeight();
     }
+
+    public String toString() {
+        return JSONObject.toJSONString(this);
+    }
+
+
 }

@@ -90,7 +90,7 @@ public class QuickSort {
                 return false;
             i++;
         }
-        return sum == num ? true : false;
+        return sum == num;
     }
 
     public static void main(String[] args) {
