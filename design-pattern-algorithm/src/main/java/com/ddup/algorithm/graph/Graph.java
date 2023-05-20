@@ -10,8 +10,8 @@ import java.util.List;
  * @description 图
  */
 public class Graph {
-    private List<String> vertexList;
-    private int[][] edges;
+    private List<String> vertexList;//顶点
+    private int[][] edges; // 边及权重
     private int numOfEdges;
     private boolean[] visited;
 
