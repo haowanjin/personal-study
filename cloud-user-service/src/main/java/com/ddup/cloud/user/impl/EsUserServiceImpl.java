@@ -24,7 +24,7 @@ public class EsUserServiceImpl implements EsUserService {
     @Transactional(isolation = Isolation.READ_COMMITTED)
     public String save() {
         for (int i = 0; i < 50; i++) {
-            int random = (int) Math.random();
+            int random = (int) (Math.random() + 1);
             int age = random * 10 + i + 1;
             EsUser esUser = new EsUser(i + 1, "张三" + age, 50 % (i + 1) == 0 ? "男" : "女", age, "西安市丈八北路丈八沟街道" + age + "号");
             userMapper.insertEsUser(esUser);
