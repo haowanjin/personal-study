@@ -4,6 +4,7 @@ import com.ddup.cloud.db.mapper.EsUserMapper;
 import com.ddup.cloud.entity.EsUser;
 import com.ddup.cloud.service.EsUserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
@@ -36,5 +37,12 @@ public class EsUserServiceImpl implements EsUserService {
     @Transactional(isolation = Isolation.REPEATABLE_READ)
     public List<EsUser> getAll() {
         return userMapper.getAll();
+    }
+
+    @Override
+    @Async
+    public String asyncTest() {
+        System.out.println(Thread.currentThread().getName());
+        return "asyncTest";
     }
 }

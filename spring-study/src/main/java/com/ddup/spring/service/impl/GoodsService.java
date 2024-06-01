@@ -1,6 +1,7 @@
 package com.ddup.spring.service.impl;
 
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -22,6 +23,12 @@ public class GoodsService {
     public void insert() {
         System.out.println(this);
         getUser();
+    }
+
+    @Async
+    public String asyncTest() {
+        System.out.println(Thread.currentThread().getName());
+        return "asyncTest";
     }
 
 }

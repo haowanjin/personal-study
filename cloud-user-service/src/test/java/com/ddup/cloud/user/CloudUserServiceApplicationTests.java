@@ -9,12 +9,14 @@ import org.junit.jupiter.api.Test;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.scheduling.annotation.EnableAsync;
 
 import java.util.List;
 import java.util.Random;
 
 @SpringBootTest
 @MapperScan("com.ddup.cloud.db.mapper")
+@EnableAsync
 class CloudUserServiceApplicationTests {
     @Autowired
     private YwdMapper mapper;
@@ -23,6 +25,12 @@ class CloudUserServiceApplicationTests {
 
     @Autowired
     private EsUserService esUserService;
+
+    @Test
+    public void testAsync() {
+        System.out.println(Thread.currentThread().getName());
+        esUserService.asyncTest();
+    }
 
     @Test
     void contextLoads() {
