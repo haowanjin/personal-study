@@ -3,12 +3,12 @@ package com.ddup.proxy;
 /**
  * @author haowanjin
  * @date 2023/2/15 20:34
- * @description
+ * @description dd
  */
 public class UserServiceImpl implements UserService {
     @Override
     public void doSth() {
-        String str = """
+        /*String str = """
                 {
                 		"teamCount": 2,
                 		"teamMembers": [{
@@ -28,7 +28,7 @@ public class UserServiceImpl implements UserService {
                 			"belongOrganName": "信息科技部"
                 		}]
                 	}
-                """;
+                """;*/
         System.out.println(getClass().getName() + " doSth");
     }
 }

@@ -12,13 +12,13 @@ public class AopInvokerHandler implements InvocationHandler {
     private Object targetObj;
 
     public AopInvokerHandler(Object targetObj) {
-        String text = """
-                select * from 
-                user where 
+       /* String text = """
+                select * from
+                user where
                 a.id=''
                 and a.text like '%dasfsa%'
                 """;
-        System.out.println(text);
+        System.out.println(text);*/
         this.targetObj = targetObj;
     }
 
