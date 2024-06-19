@@ -7,7 +7,7 @@ public class LeetCode131 {
     public static void main(String[] args) {
         String s = "aabb";
         List<List<String>> res = new ArrayList<>();
-        dfs(0, 0, s, new ArrayList<>(), res);
+        dfs(0, 0, s, new ArrayList<>(s.length()), res);
         System.out.println(res);
     }
 

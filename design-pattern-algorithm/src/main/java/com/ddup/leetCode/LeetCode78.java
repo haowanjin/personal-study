@@ -7,7 +7,7 @@ public class LeetCode78 {
     public static void main(String[] args) {
         int[] nums = {1, 2, 3};
         List<List<Integer>> res = new ArrayList<>();
-        dfs2(0, nums, new ArrayList<>(), res);
+        dfs2(0, nums, new ArrayList<>(nums.length), res);
         System.out.println(res);
 
     }
