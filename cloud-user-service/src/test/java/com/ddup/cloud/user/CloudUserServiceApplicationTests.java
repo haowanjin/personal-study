@@ -12,7 +12,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.scheduling.annotation.EnableAsync;
 
 import java.util.List;
-import java.util.Random;
 
 @SpringBootTest
 @MapperScan("com.ddup.cloud.db.mapper")
