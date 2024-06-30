@@ -5,7 +5,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import static com.sun.management.HotSpotDiagnosticMXBean.ThreadDumpFormat.JSON;
 
 @Data
 @NoArgsConstructor

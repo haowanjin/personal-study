@@ -115,7 +115,7 @@ public class HWTest {
             shang = decimal / hex;
             yushu = decimal % hex;
             if (yushu >= 10 && yushu < hex) {
-                sb.append(Character.toString('A' + (yushu - 10)));
+                sb.append(('A' + (yushu - 10)));
             } else {
                 sb.append(yushu);
             }
