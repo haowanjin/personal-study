@@ -79,11 +79,11 @@ public class ExcelTest {
     }
 
     private boolean calReturn(List<Money> moneyList, int paid, int price) {
-        List<Money> baklist = moneyList.stream().toList();
+        List<Money> baklist = moneyList.stream().map(Money::clone).toList();
         int returnMoney = paid - price;
         for (int i = baklist.size() - 1; i >= 0; i--) {
             if (returnMoney == 0) {
-                return true;
+                break;
             }
             if (returnMoney >= baklist.get(i).value) {
                 int delCnt = returnMoney / baklist.get(i).value;
@@ -98,7 +98,7 @@ public class ExcelTest {
         }
         if (returnMoney == 0) {
             for (int i = 0; i < baklist.size(); i++) {
-                moneyList.add(i, baklist.get(i));
+                moneyList.set(i, baklist.get(i).clone());
             }
         }
         return returnMoney == 0;
@@ -130,13 +130,23 @@ public class ExcelTest {
         return name1;
     }
 
-    static class Money {
+    static class Money implements Cloneable {
         int value;
         int count;
 
         public Money(int value, int count) {
             this.value = value;
             this.count = count;
+        }
+
+        @Override
+        public Money clone() {
+            try {
+                // TODO: copy mutable state here, so the clone can't change the internals of the original
+                return (Money) super.clone();
+            } catch (CloneNotSupportedException e) {
+                throw new AssertionError();
+            }
         }
     }
 }
